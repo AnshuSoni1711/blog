@@ -3,6 +3,7 @@ package com.concretepage.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.concretepage.entity.Topic;
 import com.concretepage.service.IArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,16 +25,20 @@ public class ArticleService implements IArticleService {
 		articleRepository.findAll().forEach(e -> list.add(e));
 		return list;
 	}
+
+	@Override
+	public List<Article> getArticlesByAuthor(String authorNme) {
+		List<Article> list = articleRepository.findByAuthor(authorNme);
+		return list;
+	}
+
 	@Override
 	public synchronized boolean addArticle(Article article){
-	   List<Article> list = articleRepository.findByTitleAndCategory(article.getTitle(), article.getCategory()); 	
-       if (list.size() > 0) {
-    	   return false;
-       } else {
     	   articleRepository.save(article);
     	   return true;
-       }
 	}
+
+
 	@Override
 	public void updateArticle(Article article) {
 		articleRepository.save(article);

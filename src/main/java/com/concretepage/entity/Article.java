@@ -1,5 +1,6 @@
 package com.concretepage.entity;
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,33 +9,74 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name="articles")
+@Table(name="article")
 public class Article implements Serializable { 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="article_id")
-    private long articleId;  
-	@Column(name="title")
-    private String title;
-	@Column(name="category")	
-	private String category;
-	public long getArticleId() {
-		return articleId;
+	@Column(name="id")
+    private long uid;
+    @Column(name="topic_id")
+	private long topicId;
+	@Column(name="auther")
+    private String author;
+	@Column(name="created")
+	private Date created;
+	@Column(name="modified")
+	private Date modified;
+
+	public long getUid() {
+		return uid;
 	}
-	public void setArticleId(long articleId) {
-		this.articleId = articleId;
+
+	public void setUid(long uid) {
+		this.uid = uid;
 	}
-	public String getTitle() {
-		return title;
+
+	public long getTopicId() {
+		return topicId;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+
+	public void setTopicId(long topicId) {
+		this.topicId = topicId;
 	}
-	public String getCategory() {
-		return category;
+
+	public String getAuthor() {
+		return author;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
+
+	public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
+	}
+
+	public Date getModified() {
+		return modified;
+	}
+
+	public void setModified(Date modified) {
+		this.modified = modified;
+	}
+
+	public String getHeading() {
+		return heading;
+	}
+
+	public void setHeading(String heading) {
+		this.heading = heading;
+	}
+
+	@Column(name="heading")
+	private String heading;
+
+
+
+
 } 
