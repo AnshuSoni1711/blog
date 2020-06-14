@@ -40,7 +40,7 @@ public class ArticleController {
         	return new ResponseEntity<Void>(HttpStatus.CONFLICT);
         }
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(builder.path("/article/{id}").buildAndExpand(article.getArticleId()).toUri());
+        headers.setLocation(builder.path("/article/{id}").buildAndExpand(article.getUid()).toUri());
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	@PutMapping("article")
