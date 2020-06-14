@@ -1,8 +1,9 @@
-package com.concretepage.service;
+package com.concretepage.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.concretepage.service.IArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
